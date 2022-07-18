@@ -1,15 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Greek gods</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bellybutton Biodiversity</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="plot"></div>
-    <script src="data.js"></script>
-    <script src="plots.js"></script>
+
+<body class = "bg-info">
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">Bellybutton Biodiversity</a>
+      </nav>
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Belly Button Biodiversity Dashboard</h1>
+        <p>Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div>
+    <div class="row">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <p>
+                The human body is home to many bacteria ans different parts of the body harbor different species of bacteria. 
+                There is also a difference in taking samples from the same area of the body but from two different people.
+                A study was conducted where people had their bellybuttons swabbed in order to identify the range of bacteria that was found. 
+                Here, the results have been displayed. 
+                Each participant has an id number which will then display the results of the sample id and the values of those samples, meaning the number of bacteria grown.
+                The gauge will show the frequency of which they washed their bellybutton weekly.
+                Finally, the bubble graph displays all the samples at once, where each bubble is a different bacteria species and the size of the bubble is how much of that bacteria grew. 
+              </p>
+          </div>
+      </div>
+    </div>
+    <div class ="row">
+      
+      <div class="col-md-4">
+        <div class="well">
+          <h5>Test Subject ID No.:</h5>
+          <!-- <select id="selDataset"></select> -->
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading bg-white">
+            <h3 class="panel-title bg-white">Demographic Info</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div>
+      </div>
+       
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          A bar chart to help identify the top 10 bacterial species found in the selected participant's belly buttons
+        </p>
+      </div>
+    </div>
+    <div class ="row">
+      <div class="col-md-6">
+        <div id="bar"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          A gauge that shows the selected participant's frequency of washing their belly button.
+        </p>
+      </div>
+    </div>
+    <div class ="row">
+      <div class="col-md-4">
+        <div id="gauge"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          A bubble chart that shows all the OTU id's found and the size of the bubble is related to the sample value of the bacteria. 
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="charts.js"></script>
 </body>
+
 </html>
